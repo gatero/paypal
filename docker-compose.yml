@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  paypal:
+    container_name: $PAYPAL_CONTAINER
+    image: $PAYPAL_IMAGE
+    build:
+      context: .
+    expose:
+      - $PAYPAL_PORT
+    volumes:
+      - $PAYPAL_VOLUME
+    env_file:
+      - .env
+networks:
+  default:
+    name: $NETWORK
